@@ -88,13 +88,13 @@
         </div>
         <div class="col-md-12 mt-3 ">
             {% if articles %}
-            <h5>Artículos publicados</h5>
+            <h5>Artículos escritos:</h5>
             <table class="table text-align-left">
                 <tbody>
                     {% for article in articles%}
                     <tr>
                         {% if article.status == True%}
-                                <td><b>{{article.title}}</b></td>
+                                <td><b>{{article.title}}</b> <span class="badge badge-success">Publicado</span></td>
                                 <td><a class="btn btn-sm btn-outline-info" href="{% url 'article_detail' article.slug %}"><span><i
                                         class="fas fa-search-plus"></i></span></a></td>
                                 {% if customuser.username == user.username %}
@@ -103,9 +103,9 @@
                                 {% endif %}
                         {%else%}
                                 {% if customuser.username == user.username %}
-                                <td><b>{{article.title}}</b></td>
+                                <td><b>{{article.title}} </b><span class="badge badge-danger">No publicado</span></td>
                                 <td></td>
-                                <td><a class="btn btn-sm btn-warning" href="{% url 'article_edit' article.slug %}"><span><i
+                                <td><a class="btn btn-sm btn-outline-warning" href="{% url 'article_edit' article.slug %}"><span><i
                                         class="far fa-edit"></i></span></a></td>
                                 {% endif %}
                         {% endif %}
