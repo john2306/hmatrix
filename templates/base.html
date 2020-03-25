@@ -96,7 +96,7 @@
                                 <a class="dropdown-item bg-warning" href="{% url 'article_new' %}">Crear artículo +</a>
                                 <a class="dropdown-item" href="{% url 'profile_detail' user.slug %}">Perfil</a>
                                 <a class="dropdown-item" href="{% url 'profile_list' %}">Autores</a>
-                                <a class="dropdown-item" href="{% url 'profile_edit' user.pk %}">Configuración</a>
+                                <a class="dropdown-item" href="{% url 'profile_edit' user.slug%}">Configuración</a>
                                 <a class="dropdown-item" href="{% url 'password_change'%}">Cambiar contraseña</a>
                                 <hr class="m-0 p-0">
                                 <a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
