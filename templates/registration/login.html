@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{%block title%}Login{%endblock title%}
+
+{%block header%}
+<!-- Page Header -->
+<header class="masthead"
+    style="background-image: url({% block imagen%}{% static 'img/home-bg.jpg' %}{% endblock imagen%})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <div class="container-fluid" style="margin-top: 40px;">
+                        <div class="row">
+                            <div class="col-md-2">
+
+                            </div>
+                            <div class="col-md-8">
+                                <h3>Ingresar a la plataforma</h3>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    {{form | crispy }}
+                                    <button class="btn btn-info" type="submit">Ingresar</button>
+                                </form>
+                                <hr>
+                                <div class="row  text-center">
+                                    <div class="col-md-6">
+                                        <small><a style="color: white;" href="{% url 'password_reset' %}">Olvidaste tu cuenta/contraseña?</a></small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <small><a style="color: white;" href="{% url 'signup' %}">Aún no tienes una cuenta? | Aquí</a></small>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header%}

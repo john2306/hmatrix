@@ -1,0 +1,92 @@
+{% extends 'projects_base.html' %}
+{% load static %}
+{%block title%}Desafíos{%endblock title%}
+
+{%block header%}
+<!-- Page Header -->
+<style>
+    header.masthead .site-heading {
+        padding: 5px 0 52px;
+        color: #fff
+    }
+
+    .jumbotron {
+        background-image: url({% static 'img/home-bg.jpg'%});
+        -webkit-box-shadow: inset 4px 2px 180px 99px rgba(0, 0, 0, 0.65);
+        -moz-box-shadow: inset 4px 2px 180px 99px rgba(0, 0, 0, 0.65);
+        box-shadow: inset 4px 2px 180px 99px rgba(0, 0, 0, 0.65);
+        color: #fff;
+
+    }
+</style>
+
+<header class="masthead"
+    style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
+    <div class="overlay"></div>
+    <div class="site-heading">
+
+    </div>
+</header>
+{% endblock header%}
+
+
+{%block content%}
+<div class="container mt-0">
+    <div class="container-fluid">
+        {% if user.is_authenticated  == False  %}
+        <a class="btn btn-sm btn-info" href="{% url 'signup'%}">Publica tu desafío</a><br>
+        <small>Encuentra soluciones de todo el mundo!</small>
+        {% endif %}
+
+
+        <div class="jumbotron mb-0">
+            <h5>GOOD JOBS & INCLUSIVE ENTREPRENEURSHIP</h5>
+            <p class="lead">How can marginalized populations access and create good jobs and entrepreneurial
+                opportunities for themselves?.</p>
+            <div class="row text-center">
+                <div class="col-sm-12 col-md-4">
+                    <img src="https://scontent.flim18-1.fna.fbcdn.net/v/t31.0-8/p960x960/858734_130014603841544_926171606_o.png?_nc_cat=103&_nc_sid=85a577&_nc_oc=AQlQOeMBY_CTtSNMq4iGqGav44cqQjsVQaIbMmvq82SWXUOePOsnvmltsymbU25IDr4&_nc_ht=scontent.flim18-1.fna&oh=e4b03e96c41f5c06805a73bb6c2c1c1c&oe=5E92FABA"
+                        alt="Proyecta UNI" class="mr-3 mt-3 rounded-circle" style="width:60px;height: 60px;"> Proyecta
+                    UNI
+                </div>
+                <div class="col-sm-12 col-md-4"><br>
+                    2, 123 equipos <span class="warning">|</span> hace 17 días
+                </div>
+                <div class="col-sm-12 col-md-4"><br>
+                    Premio: 8, 000 soles
+                </div>
+            </div>
+        </div>
+        <!--Navbar for profile-->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"><a href="">Desafío</a></th>
+                        <th scope="col"><a href="">Premios</a></th>
+                        <th scope="col"><a href="">Bases</a></th>
+                        <th scope="col"><a href="">Discusión</a></th>
+                        <th scope="col"><a href="">Soluciones</a></th>
+                        <th scope="col"><a href=""><strong>INSCRIBIRSE</strong></a></th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+
+        <section>
+            <h6>Título del desafío</h6>
+            <p>Descripción del desafío</p>
+            <b>Objetivos:</b>
+            <ul>
+                <li>Objetivo 1</li>
+                <li>Objetivo 2</li>
+                <li>Objetivo 3</li>
+                <li>Objetivo 4</li>
+                <li>Objetivo 5</li>
+            </ul>
+        </section>
+
+    </div>
+</div>
+{%endblock content%}

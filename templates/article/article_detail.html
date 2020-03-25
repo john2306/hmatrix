@@ -1,0 +1,102 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+{%block title%}{{article.title}}{%endblock title%}
+
+{% block titulo_principal%}
+{{article.title}}
+{% endblock titulo_principal%}
+
+{% block titulo_parrafo%}
+{{article.description}}
+{% endblock titulo_parrafo%}
+{% block status %}
+{% if article.status == False %}
+<a class="btn btn-sm btn-danger" href="{% url 'article_edit' article.slug %}">No Publicado <span><i
+    class="far fa-edit"></i></span></a>
+{% endif %}
+{%endblock status %}
+
+{% block barra_busqueda%}
+
+{% endblock barra_busqueda%}
+
+
+{% block imagen%}
+{{article.image}}
+{% endblock imagen%}
+
+{% block content%}
+<div class="container">
+
+    {{article.body | safe}}
+
+</div>
+<div class="container">
+    <p class="post-meta">Autor:
+        <a href="{% url 'profile_detail' article.author.slug %}"><strong>{{article.author}}</strong></a> , publicado el
+        {{article.date}}</p>
+    <p>
+        {% if article.author.username == user.username %}
+        <div class="card-footer text-center bg-info text-white">
+            <a href="{% url 'article_edit' article.slug %}">Edit</a> | <a
+                href="{% url 'article_delete' article.slug %}">Delete</a>
+        </div>
+        {% endif %}
+    </p>
+</div>
+<!--
+    <hr>
+<h5>Comments | <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModalCenter">Dejar
+        uncomentario</button></h5>
+{% for comment in article.comments.all %}
+<div class="media border p-3">
+    <img src="{{comment.author.photo}}" alt="{{comment.author}}" class="mr-3 mt-3 rounded-circle"
+        style="width:60px;height: 60px;">
+    <div class="media-body">
+        <h6>{{comment.author.get_full_name}} &middot;<small><i>Posted on
+                    {{comment.date}}</i></small></h6>
+        <p>{{comment}}</p>
+
+        <div class="media p-3">
+            <img src="img_avatar2.png" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+            <div class="media-body">
+                <h4>Jane Doe <small><i>Posted on February 20 2016</i></small></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{%  endfor %}
+-->
+
+
+<!--MODAL COMMENTS-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLongTitle">{{user.get_full_name}} <small>Comentarios</small>
+                </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form}}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content%}

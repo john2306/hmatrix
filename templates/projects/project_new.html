@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{%block title%}Article news{%endblock title%}
+{%block header%}
+<!-- Page Header -->
+<style>
+    header.masthead .site-heading {
+    padding: 5px 0 52px;
+    color: #fff
+}
+</style>
+
+<header class="masthead"
+    style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
+    <div class="overlay"></div>
+    <div class="site-heading">
+
+    </div>
+</header>
+{% endblock header%}
+
+{%block content%}
+<div class="container-fluid">
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <span>
+                    <h3>Nuevo artículo</h3><small>Excelente, comparte con el mundo lo que opinas.</small>
+                </span>
+            </div>
+            <div class="card-body">
+                <form action="" method="POST">
+                    {% csrf_token%}
+                    {{form | crispy | safe}}
+                    {{form.media}}
+                    <button class="btn btn-info ml-2" type="submit">Publicar</button>
+                </form>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+</div>
+{%endblock content%}

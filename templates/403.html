@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%block title%}Articles{%endblock title%}
+
+{%block content%}
+<div class="container-fluid" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    <span>
+                        <h3>Hola: {{user.username}}&middot;</h3>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <p>No puedes editar/eliminar este campo, ya que no eres propietario.</p>
+                    <strong>Saludos!</strong>
+                </div>
+                <div class="card-footer text-center text-muted">
+                    <a href="{% url 'home' %}">All articles</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+
+        </div>
+    </div>
+</div>
+
+{%endblock content%}

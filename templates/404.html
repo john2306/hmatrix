@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%block title%}Articles{%endblock title%}
+
+
+{%block content%}
+
+<div class="container-fluid" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-10">
+            <h3>PAGE NOT FOUND 404 </h3>
+            <h1>No existe dicha página, lo sentimos :(</h1>
+            <span>Te invitamos ir al inicio, <a href="{% url 'home' %}">Home</a></span>
+        </div>
+        <div class="col-md-1">
+
+        </div>
+    </div>
+</div>
+
+{%endblock content%}
+
