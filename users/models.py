@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
-from ckeditor.fields import RichTextField
+from tinymce.models import HTMLField
 
 # Create your models here.
 class CustomUser(AbstractUser):
@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
     )
     slug = models.SlugField(max_length=255, blank=True, null = True)
     description = models.CharField('Descripción:',max_length =255, help_text='Una frase favorita o como de describe.', null = True, blank = True)
-    bio = RichTextField('Biografía o Experiencia',null=True, blank=True)
+    bio = HTMLField('Biografía o Experiencia',null=True, blank=True)
     age = models.PositiveIntegerField('Edad:',null=True, blank=True)
     facebook = models.URLField('Facebook (url):', blank = True, null = True)
     linkedin = models.URLField('Linkedin (url):', blank = True, null = True)

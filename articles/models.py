@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
-from ckeditor.fields import RichTextField
+from tinymce.models import HTMLField
 
 CATEGORY_CHOICES = [
     ('general','General'),
@@ -22,7 +22,7 @@ class Article(models.Model):
     )
     slug = models.SlugField(max_length=300, blank=True, null = True)
     category = models.CharField('Categoría',max_length = 20, choices = CATEGORY_CHOICES, default = 'general', null =  True, blank = True)
-    body = RichTextField('Contenido:',null=True, blank=True, help_text ='Publicar, en cualquier momento puede editarlo.')
+    body = HTMLField('Contenido:',null=True, blank=True, help_text ='Publicar, en cualquier momento puede editarlo.')
     date = models.DateTimeField(auto_now_add = True)
     author = models.ForeignKey(get_user_model(), on_delete = models.CASCADE) 
     delete = models.BooleanField('Borrado/No borrado', default = False)
