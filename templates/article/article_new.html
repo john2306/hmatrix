@@ -2,6 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {%block title%}New Article{%endblock title%}
+
 {%block header%}
 <!-- Page Header -->
 <style>
@@ -26,15 +27,62 @@
         <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-header bg-info p-1">
-                    
                 </div>
                 <div class="card-body">
                     <form action="" method="POST">
                         {% csrf_token%}
-                        {{form | crispy | safe}}
-                        {{form.media}}
+                        <div id="div_id_title" class="form-group"> <label for="id_title" class=" requiredField">
+                                Título:<span class="asteriskField">*</span> </label>
+                            <div class=""> <input type="text" name="title" maxlength="255"
+                                    class="textinput textInput form-control" required id="id_title"> </div>
+                        </div>
+                        <div id="div_id_image" class="form-group"> <label for="id_image" class="">
+                                Imagen de portada (URL)
+                            </label>
+                            <div class=""> <input type="url" name="image"
+                                    value="https://www.karlosperu.com/wp-content/uploads/2019/09/conectividad.png"
+                                    maxlength="200" class="urlinput form-control" id="id_image"> <small
+                                    id="hint_id_image" class="form-text text-muted">Buscar imagen relacionado al
+                                    artículo y pegar aquí la dirección URL de la imagen.</small> </div>
+                        </div>
+                        <div id="div_id_description" class="form-group"> <label for="id_description" class="">
+                                Descripción:
+                            </label>
+                            <div class=""> <input type="text" name="description" maxlength="255"
+                                    class="textinput textInput form-control" id="id_description"> <small
+                                    id="hint_id_description" class="form-text text-muted">Descripción corto del artículo
+                                    o frases relevantes de la misma.</small> </div>
+                        </div>
+                        <div id="div_id_category" class="form-group"> <label for="id_category" class="">
+                                Categoría
+                            </label>
+                            <div class=""> <select name="category" class="select form-control" id="id_category">
+                                    <option value="">---------</option>
+                                    <option value="general" selected>General</option>
+                                    <option value="datascience">Ciencia de datos</option>
+                                    <option value="neurociencia">Neurociencia</option>
+                                    <option value="projects">Proyectos</option>
+
+                                </select> </div>
+                        </div>
+                        <div id="div_id_body" class="form-group"> <label for="id_body" class="">
+                                Contenido:
+                            </label>
+                            <div class=""> <textarea id="basic-example" cols="40"
+                                    name="body" rows="5"></textarea> 
+                                    <small id="hint_id_body"
+                                    class="form-text text-muted">Te recomendamos diseñar el artículo en Word y pegar en
+                                    este campo.</small> </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="div_id_status" class="form-check"> <input type="checkbox" name="status"
+                                    class="checkboxinput form-check-input" id="id_status" checked> <label
+                                    for="id_status" class="form-check-label">
+                                    Publicar/No publicar
+                                </label> </div>
+                        </div>
                         <button class="btn btn-warning ml-2" type="submit">Publicar</button>
-                    </form> <br>
+                    </form><br>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -42,13 +90,13 @@
 
                         <strong>Hola {{user.first_name}}!</strong> <br>
                         Si aún no acabas de redactar el artículo, puedes desmarcar en <strong>No
-                            publicar</strong> y presionar Publicar, el artículo se guardará y lo podrás editar más tarde, estará
+                            publicar</strong> y presionar Publicar, el artículo se guardará y lo podrás editar más
+                        tarde, estará
                         en la parte inferior de tu perfil.
-                        
+
                     </div>
                     <div class="card-footer text-center text-muted">
                         <a class="btn btn-info" href="{% url 'profile_detail' user.slug %}">Cancelar</a>
-                        
                     </div>
                 </div>
             </div>
@@ -56,4 +104,6 @@
         </div>
     </div>
 </div>
+
+
 {%endblock content%}

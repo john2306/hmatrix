@@ -29,6 +29,30 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
 
+    <script src='https://cdn.tiny.cloud/1/oi2iqtbw0d0hi05t4p4ujj9xv9wnralln57inf1h5wm9sm2d/tinymce/5/tinymce.min.js'
+    referrerpolicy="origin">
+    </script>
+<script>
+    tinymce.init({
+        selector: 'textarea#basic-example',
+        height: 500,
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        content_css: '//www.tiny.cloud/css/codepen.min.css'
+    });
+</script>
+    {% block script %}
+
+    {% endblock script %}
+
 </head>
 
 <body>
@@ -194,7 +218,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-
+    
     <!-- Custom scripts for this template -->
     <script src="{% static 'js/clean-blog.min.js' %}"></script>
 
