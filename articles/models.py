@@ -22,7 +22,7 @@ class Article(models.Model):
     )
     slug = models.SlugField(max_length=300, blank=True, null = True)
     category = models.CharField('Categoría',max_length = 20, choices = CATEGORY_CHOICES, default = 'general', null =  True, blank = True)
-    body = HTMLField('Contenido:',null=True, blank=True, help_text ='Publicar, en cualquier momento puede editarlo.')
+    body = HTMLField('Contenido:',null=True, blank=True, help_text ='Te recomendamos diseñar el artículo en Word y pegar en esta parte.')
     date = models.DateTimeField(auto_now_add = True)
     author = models.ForeignKey(get_user_model(), on_delete = models.CASCADE) 
     delete = models.BooleanField('Borrado/No borrado', default = False)

@@ -40,8 +40,8 @@ INSTALLED_APPS = [
 
 
     #3rd Party
-    'crispy_forms', 
     'tinymce',
+    'crispy_forms', 
     'import_export',
 
 
