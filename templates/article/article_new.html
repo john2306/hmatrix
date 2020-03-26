@@ -33,7 +33,7 @@
                         {% csrf_token%}
                         <div id="div_id_title" class="form-group"> <label for="id_title" class=" requiredField">
                                 Título:<span class="asteriskField">*</span> </label>
-                            <div class=""> <input type="text" name="title" maxlength="255"
+                            <div class=""> <input type="text" name="title" maxlength="255" autocomplete="off"
                                     class="textinput textInput form-control" required id="id_title"> </div>
                         </div>
                         <div id="div_id_image" class="form-group"> <label for="id_image" class="">
@@ -45,19 +45,20 @@
                                     id="hint_id_image" class="form-text text-muted">Buscar imagen relacionado al
                                     artículo y pegar aquí la dirección URL de la imagen.</small> </div>
                         </div>
-                        <div id="div_id_description" class="form-group"> <label for="id_description" class="">
-                                Descripción:
+                        <div id="div_id_description" class="form-group"> <label for="id_description">
+                                Descripción (255 caracteres):
                             </label>
-                            <div class=""> <input type="text" name="description" maxlength="255"
-                                    class="textinput textInput form-control" id="id_description"> <small
-                                    id="hint_id_description" class="form-text text-muted">Descripción corto del artículo
-                                    o frases relevantes de la misma.</small> </div>
+                            <div class="form-group">
+                                <textarea class="form-control" type="text" name="description" maxlength="255" autocomplete="off"
+                                    rows="3"></textarea>
+                                <small id="hint_id_description" class="form-text text-muted">Descripción corto del artículo
+                                    o frases relevantes del mismo.</small>
+                            </div>
                         </div>
                         <div id="div_id_category" class="form-group"> <label for="id_category" class="">
-                                Categoría
+                                Categoría:
                             </label>
                             <div class=""> <select name="category" class="select form-control" id="id_category">
-                                    <option value="">---------</option>
                                     <option value="general" selected>General</option>
                                     <option value="datascience">Ciencia de datos</option>
                                     <option value="neurociencia">Neurociencia</option>
@@ -65,8 +66,8 @@
 
                                 </select> </div>
                         </div>
-                        <div id="div_id_body" class="form-group"> <label for="id_body" class="">
-                                Contenido:
+                        <div id="div_id_body" class="form-group"> <label for="id_body" >
+                                Contenido &amalg;:
                             </label>
                             <div class=""> <textarea id="basic-example" cols="40"
                                     name="body" rows="5"></textarea> 
