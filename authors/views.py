@@ -20,6 +20,9 @@ class ProfileListView(ListView):
 def profiles_list_view(request):
     queryset = request.GET.get("buscar")
     custumusers = get_list_or_404(CustomUser, estado = True) 
+    if custumusers == None:
+        return redirect('home')
+        
     if queryset and custumusers:
         custumusers = CustomUser.objects.filter(
             Q(username__icontains = queryset) |

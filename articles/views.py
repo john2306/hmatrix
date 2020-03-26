@@ -29,12 +29,14 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         #Le notificas que creó un artículo.
+        """
         send_mail(
             'Creaste un nuevo artículo', 
             'Es genial saber que sigues aportando a la comunidad \ncon tu investigación, conocimiento y buenas propuestas',
             'do-not-reply@example.com',
             [self.request.user.email]
             )
+        """
         return super().form_valid(form)
 
 class ArticleDetailView(DetailView): # new
