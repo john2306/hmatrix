@@ -7,9 +7,9 @@
 <!-- Page Header -->
 <style>
     header.masthead .site-heading {
-    padding: 5px 0 52px;
-    color: #fff
-}
+        padding: 5px 0 52px;
+        color: #fff
+    }
 </style>
 
 <header class="masthead"
@@ -21,8 +21,6 @@
 </header>
 {% endblock header%}
 
-
-
 {%block content%}
 <div class="container-fluid">
     <div class="row mt-4">
@@ -30,19 +28,107 @@
             <h5>Editar Perfil</h5>
             <div class="card shadow">
                 <div class="card-header bg-info p-1">
-                    
                 </div>
                 <div class="card-body">
                     <form action="" method="POST">
                         {% csrf_token %}
-                        {{form | crispy |safe}}
-                        {{form.media}}
+                        <div id="div_id_first_name" class="form-group">
+                            <label for="id_first_name" class="">Nombre</label>
+                            <div class="">
+                                <input type="text" name="first_name" value="{{form.first_name.value}}" maxlength="30"
+                                    class="textinput textInput form-control" id="id_first_name"> </div>
+                        </div>
+
+                        <div id="div_id_last_name" class="form-group">
+                            <label for="id_last_name" class="">Apellidos</label>
+                            <div class=""> <input type="text" name="last_name" value="{{form.last_name.value}}"
+                                    maxlength="150" class="textinput textInput form-control" id="id_last_name"> </div>
+                        </div>
+                        <div id="div_id_email" class="form-group"> <label for="id_email" class="">
+                                Dirección de correo electrónico
+                            </label>
+                            <div class=""> <input type="email" name="email" value="{{form.email.value}}" maxlength="254"
+                                    class="emailinput form-control" id="id_email"> </div>
+                        </div>
+                        <div id="div_id_universidad" class="form-group"> <label for="id_universidad" class="">
+                                Universidad:
+                            </label>
+                            <div class=""> <input type="text" name="universidad" value="{{form.universidad.value}}"
+                                    maxlength="50" class="textinput textInput form-control" id="id_universidad"> </div>
+                        </div>
+                        <div id="div_id_phone" class="form-group"> <label for="id_phone" class="">
+                                Teléfono:
+                            </label>
+                            <div class=""> <input type="text" name="phone" value="{{form.phone.value}}" maxlength="50"
+                                    class="textinput textInput form-control" id="id_phone"> </div>
+                        </div>
+                        <div id="div_id_photo" class="form-group"> <label for="id_photo" class="">
+                                Foto de perfil (URL):
+                            </label>
+                            <div class=""> <input type="url" name="photo" value="{{form.photo.value}}" maxlength="1000"
+                                    class="urlinput form-control" id="id_photo"> <small id="hint_id_photo"
+                                    class="form-text text-muted">Pega el link de tu foto de:
+                                    linkedin, facebook u otro. Le das click derecho a la imagen y seleccionas COPIAR
+                                    DIRECCIÓN de la IMAGEN</small> </div>
+                        </div>
+                        <div id="div_id_description" class="form-group"> <label for="id_description" class="">
+                                Descripción (255 caracteres):
+                            </label>
+                            <div class="form-group">
+                                <textarea class="form-control" type="text" name="description" maxlength="255"
+                                    rows="3">{{form.description.value}}</textarea>
+                                <small id="hint_id_description" class="form-text text-muted">Una frase favorita o como
+                                    se describe en pocas palabras.</small>
+                            </div>
+                        </div>
+                        <div id="div_id_bio" class="form-group"> <label for="id_bio" class="">
+                                Biografía o Experiencia
+                            </label>
+                            <div class=""> <textarea id="basic-example" name="bio">{{form.bio.value}}</textarea> </div>
+                        </div>
+                        <div id="div_id_age" class="form-group"> <label for="id_age" class="">
+                                Edad:
+                            </label>
+                            <div class=""> <input type="number" name="age" value="{{form.age.value}}" min="0"
+                                    class="numberinput form-control" id="id_age"> </div>
+                        </div>
+                        <div id="div_id_facebook" class="form-group"> <label for="id_facebook" class="">
+                                Facebook (url):
+                            </label>
+                            <div class=""> <input type="url" name="facebook" value="{{form.facebook.value}}"
+                                    maxlength="200" class="urlinput form-control" id="id_facebook"> </div>
+                        </div>
+                        <div id="div_id_linkedin" class="form-group"> <label for="id_linkedin" class="">
+                                Linkedin (url):
+                            </label>
+                            <div class=""> <input type="url" name="linkedin"
+                                    value="{{form.linkedin.value}}" maxlength="200"
+                                    class="urlinput form-control" id="id_linkedin"> </div>
+                        </div>
+                        <div id="div_id_twitter" class="form-group"> <label for="id_twitter" class="">
+                                Twitter (url):
+                            </label>
+                            <div class=""> <input type="url" name="twitter" value="{{form.twitter.value}}"
+                                    maxlength="200" class="urlinput form-control" id="id_twitter"> </div>
+                        </div>
+                        <div id="div_id_instagram" class="form-group"> <label for="id_instagram" class="">
+                                Instagram (url):
+                            </label>
+                            <div class=""> <input type="url" name="instagram"
+                                    value="{{form.instagram.value}}" maxlength="200"
+                                    class="urlinput form-control" id="id_instagram"> </div>
+                        </div>
+                        <div id="div_id_web" class="form-group"> <label for="id_web" class="">
+                                Web (url):
+                            </label>
+                            <div class=""> <input type="url" name="web" value="{{form.web.value}}"
+                                    maxlength="200" class="urlinput form-control" id="id_web"> </div>
+                        </div>
                         <button class="btn btn-warning ml-2" type="submit">Actualizar</button>
                     </form>
                 </div>
                 <div class="card-footer text-center text-muted">
                     <a class="btn btn-info" href="{% url 'profile_detail' user.slug %}">Cancelar</a>
-                    
                 </div>
             </div>
             <br>
