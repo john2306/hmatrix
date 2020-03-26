@@ -1,7 +1,7 @@
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['ianalyticsdata.com','www.ianalyticsdata.com']
+ALLOWED_HOSTS = ['ianalyticsdata.com','www.ianalyticsdata.com','167.172.134.150']
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
