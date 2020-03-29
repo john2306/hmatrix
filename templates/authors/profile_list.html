@@ -68,7 +68,7 @@
                     </tr>
                     {% endif %} {% endfor %}
                 </tbody>
-                {% if user.get_full_name or user.universidad or user.date_creation == None %} {% if user.is_authenticated%}
+                {% if user.get_full_name and user.universidad and user.date_creation != None %} {% if user.is_authenticated%}
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

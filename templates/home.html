@@ -1,62 +1,13 @@
-{% extends 'base.html' %} {% load static %} {%block title%}IAnalytics{%endblock title%} {%block header%}
-<!-- Page Header -->
-<header class="masthead" style="background-image: url({% block imagen%}{% static 'img/home-bg.jpg' %}{% endblock imagen%})">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="site-heading">
-                    <h2>{% block titulo_principal%}Blog IAnalytics{% endblock titulo_principal%} {% block status %}{%endblock status %} {% if user.is_authenticated %}
-                        <a class="btn btn-sm btn-warning" href="{% url 'article_new'%}">Crea Artículo +</a> {% endif %}
-                    </h2>
-                    <span class="subheading">{% block titulo_parrafo%}Conociendo el mundo de la Analítica de
-                        Datos!{% endblock titulo_parrafo%}</span>
-                    <hr><br> {% block barra_busqueda%}
-                    <!--Barra para buscar-->
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 search">
-                                <form method="get">
-                                    <div id="custom-search-input">
-                                        <div class="input-group col-md-12">
-                                            <input type="text" class="form-control" placeholder="Buscar artículos..." value="{{request.GET.buscar}}" name="buscar" autocomplete="off">
-                                            <span class="input-group-list">
-                                                <button type="submit" class="btn btn-info">Buscar</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End barra buscar-->
-                    {% endblock barra_busqueda%}
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-{% endblock header%} {% block content %} {% for article in articles %}
-<div class="post-preview">
-    <a href="{% url 'article_detail' article.slug %}">
-        <h2 class="post-title">
-            {{article.title}}&middot;
-        </h2>
-        <h5 class="post-subtitle">
-            {{article.description}}
-        </h5>
-    </a>
-    <p class="post-meta">Posteado por:
-        <a href="{% url 'profile_detail' article.author.slug %}">{{article.author}}</a> el {{article.date}}</p>
-
-    {% if article.author.username == user.username %}
-    <div class="card-footer text-center bg-info text-white">
-        <a class="text-white" href="{% url 'article_edit' article.slug %}">Editar</a> | <a class="text-white" href="{% url 'article_delete' article.slug %}">Eliminar</a>
-
-    </div>
-    {% endif %}
+{% extends 'base.html' %} {% load static %} {%block title%}IAnalytics{%endblock title%}
+<section>
+    <h3>Hola estamos trabajando para mejorar la experiencia, PRONTO ESTARÁ LISTA</h3>
+</section>
+<div class="container">
+    <img src="https://previews.123rf.com/images/mike107/mike1071701/mike107170100479/70506739-cuaderno-con-toolls-y-notas-sobre-la-gesti%C3%B3n-de-proyectos.jpg" alt="" srcset="">
 </div>
-<hr> {% endfor %} {% endblock content%} {% block flecha %}
+
+
+{% block flecha %}
 <!-- Pager -->
 <div class="clearfix">
     <nav aria-label="Page navigation example">
@@ -70,7 +21,8 @@
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             -->
             {% if articles.has_previous %}
-            <li class="page-item"><a class="info" href="?page={{articles.previous_page_number}}">Recientes&rarr;</a></li>
+            <li class="page-item"><a class="info" href="?page={{articles.previous_page_number}}">Recientes&rarr;</a>
+            </li>
             {% endif %}
 
             <!--
