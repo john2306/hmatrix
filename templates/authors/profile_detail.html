@@ -89,7 +89,7 @@
                         </td>
                         {% endif %} {%else%} {% if customuser.username == user.username %}
                         <td><b>{{article.title}} </b> {% if user.is_authenticated%}
-                            <span class="badge badge-danger">No publicado</span> {% endif %}
+                            <span class="badge badge-warning">No publicado</span> {% endif %}
                         </td>
                         <td></td>
                         <td><a class="btn btn-sm btn-outline-warning" href="{% url 'article_edit' article.slug %}"><span><i
