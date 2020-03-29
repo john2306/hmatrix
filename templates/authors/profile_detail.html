@@ -1,9 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load crispy_forms_tags %}
-{%block title%}Profile Details{%endblock title%}
-
-{%block header%}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {%block title%}Profile Details{%endblock title%} {%block header%}
 <!-- Page Header -->
 <style>
     header.masthead .site-heading {
@@ -12,38 +7,28 @@
     }
 </style>
 
-<header class="masthead"
-    style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
+<header class="masthead" style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
     <div class="overlay"></div>
     <div class="site-heading">
 
     </div>
 </header>
 
-{% endblock header%}
-
-{%block content%}
+{% endblock header%} {%block content%}
 <div class="row shadow">
     <div class="col-md-3" style="text-align: center;">
-        <img src="{{customuser.photo}}" alt="{{customuser.get_full_name}}" class="m-3 rounded-circle"
-            style="width:120px; height: 120px;">
+        <img src="{{customuser.photo}}" alt="{{customuser.get_full_name}}" class="m-3 rounded-circle" style="width:120px; height: 120px;">
         <small>{% if customuser.first_name%}{{customuser.first_name}}{% endif%}</small>
     </div>
     <div class="col-md-9 mt-2">
         <h4>{{customuser.get_full_name}}</h4>
-        <b>{% if customuser.universidad != None %} {{customuser.universidad}} {% endif %}</b><br>
-        {% if customuser.description != None%}
-        {{customuser.description}}
-        {% endif %} <br>
-        {% if customuser.username == user.username %}
+        <b>{% if customuser.universidad != None %} {{customuser.universidad}} {% endif %}</b><br> {% if customuser.description != None%} {{customuser.description}} {% endif %} <br> {% if customuser.username == user.username %}
         <a class="btn btn-sm btn-info mt-3" href="{% url  'profile_edit' customuser.slug %}">Editar Perfil</a>
-        <a class="btn btn-sm btn-warning mt-3" href="{% url  'article_new' %}">Crear Artículo +</a>
-        {% endif %}
+        <a class="btn btn-sm btn-warning mt-3" href="{% url  'article_new' %}">Crear Artículo +</a> {% endif %}
     </div>
     <div class="col-md-12 mt-3 ">
         {% if customuser.universidad != None %} {{customuser.bio | safe}} {% endif %}
-        <hr>
-        {% if customuser.facebook or customuser.linkedin or customuser.twitter or customuser.instagram or customuser.web %}
+        <hr> {% if customuser.facebook or customuser.linkedin or customuser.twitter or customuser.instagram or customuser.web %}
         <h5>Redes sociales:</h5>
         {% endif %}
         <div class="btn-group mb-4" role="group" aria-label="Basic example">
@@ -54,29 +39,25 @@
                 </span>
             </a>
 
-            {% endif %}
-            {% if customuser.linkedin %}
+            {% endif %} {% if customuser.linkedin %}
             <a href="{{customuser.linkedin}}" target="_blank" class="btn btn-sm btn-info">
                 <span class="fa-stack fa-lg">
                     <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
-            {% endif %}
-            {% if customuser.twitter %}
+            {% endif %} {% if customuser.twitter %}
             <a href="{{customuser.twitter}}" target="_blank" class="btn btn-sm btn-primary">
                 <span class="fa-stack fa-lg">
                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
-            {% endif %}
-            {% if customuser.instagram %}
+            {% endif %} {% if customuser.instagram %}
             <a href="{{customuser.instagram}}" target="_blank" class="btn btn-sm btn-info">
                 <span class="fa-stack fa-lg">
                     <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
-            {% endif %}
-            {% if customuser.web %}
+            {% endif %} {% if customuser.web %}
             <a href="{{customuser.web}}" target="_blank" class="btn btn-sm btn-primary">
                 <span class="fa-stack fa-lg">
                     <i class="fas fa-globe-americas fa-stack-1x fa-inverse"></i>
@@ -94,32 +75,29 @@
                     {% for article in articles%}
                     <tr>
                         {% if article.status == True%}
-                        <td><b>{{article.title}}</b>
-                            {% if user.is_authenticated%}
-                            <span class="badge badge-success">Publicado</span>
-                            {% endif %}
+                        <td><b>{{article.title}}</b> {% if user.is_authenticated%}
+                            <span class="badge badge-success">Publicado</span> {% endif %}
                         </td>
-                        <td><a class="btn btn-sm btn-outline-info"
-                                href="{% url 'article_detail' article.slug %}"><span><i
+                        <td><a class="btn btn-sm btn-outline-info" href="{% url 'article_detail' article.slug %}"><span><i
                                         class="fas fa-search-plus"></i></span></a></td>
                         {% if customuser.username == user.username %}
-                        <td><a class="btn btn-sm btn-outline-warning"
-                                href="{% url 'article_edit' article.slug %}"><span><i
-                                        class="far fa-edit"></i></span></a></td>
-                        {% endif %}
-                        {%else%}
-                        {% if customuser.username == user.username %}
-                        <td><b>{{article.title}} </b>
-                            {% if user.is_authenticated%}
-                            <span class="badge badge-danger">No publicado</span>
-                            {% endif %}
+                        <td><a class="btn btn-sm btn-outline-warning" href="{% url 'article_edit' article.slug %}"><span><i
+                                        class="far fa-edit"></i></span></a>
+                        </td>
+                        <td><a class="btn btn-sm btn-outline-danger" href="{% url 'article_delete' article.slug %}"><span><i
+                                class="far fa-eye-slash"></i></span></a>
+                        </td>
+                        {% endif %} {%else%} {% if customuser.username == user.username %}
+                        <td><b>{{article.title}} </b> {% if user.is_authenticated%}
+                            <span class="badge badge-danger">No publicado</span> {% endif %}
                         </td>
                         <td></td>
-                        <td><a class="btn btn-sm btn-outline-warning"
-                                href="{% url 'article_edit' article.slug %}"><span><i
+                        <td><a class="btn btn-sm btn-outline-warning" href="{% url 'article_edit' article.slug %}"><span><i
                                         class="far fa-edit"></i></span></a></td>
-                        {% endif %}
-                        {% endif %}
+                        <td><a class="btn btn-sm btn-outline-danger" href="{% url 'article_delete' article.slug %}"><span><i
+                                                class="far fa-eye-slash"></i></span></a>
+                        </td>
+                        {% endif %} {% endif %}
                     </tr>
                     {% endfor %}
                 </tbody>
