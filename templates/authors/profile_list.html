@@ -1,9 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load crispy_forms_tags %}
-{%block title%}Autores{%endblock title%}
-
-{%block header%}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {%block title%}Autores{%endblock title%} {%block header%}
 <!-- Page Header -->
 <style>
     header.masthead .site-heading {
@@ -12,23 +7,19 @@
     }
 </style>
 
-<header class="masthead"
-    style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
+<header class="masthead" style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
     <div class="overlay"></div>
     <div class="site-heading">
 
     </div>
 </header>
-{% endblock header%}
-
-{%block content%}
+{% endblock header%} {%block content%}
 
 <div class="container-fluid">
-    {% if user.is_authenticated  == False  %}
+    {% if user.is_authenticated == False %}
     <a class="btn btn-sm btn-warning" href="{% url 'signup'%}">Conviértete en un autor</a><br>
     <small>Comparte tu conocimiento al mundo!</small>
-    <br class="p-0 m-1">
-    {% endif %}
+    <br class="p-0 m-1"> {% endif %}
 
     <!--Barra para buscar-->
     <div class="container">
@@ -37,8 +28,7 @@
                 <form method="get">
                     <div id="custom-search-input">
                         <div class="input-group col-md-12">
-                            <input type="text" class="form-control" placeholder="Buscar autores..."
-                                value="{{request.GET.buscar}}" name="buscar" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="Buscar autores..." value="{{request.GET.buscar}}" name="buscar" autocomplete="off">
                             <span class="input-group-list">
                                 <button type="submit" class="btn btn-info">Buscar</button>
                             </span>
@@ -55,7 +45,7 @@
         <h5>Lista de Autores:</h5>
         <div class="table-responsive shadow">
             <div class="card-header bg-info p-1">
-                    
+
             </div>
             <table class="table table-striped">
                 <thead>
@@ -68,35 +58,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for profile in custumusers %}
+                    {% for profile in custumusers %} {% if profile.get_full_name and profile.universidad and profile.date_creation != None %}
                     <tr>
-                        <td><img src="{{profile.photo}}" alt="{{profile.photo}}" class="mr-3 mt-3 rounded-circle"
-                                style="width:60px;height: 60px;"></td>
+                        <td><img src="{{profile.photo}}" alt="{{profile.photo}}" class="mr-3 mt-3 rounded-circle" style="width:60px;height: 60px;"></td>
                         <td>{{profile.get_full_name}}</td>
                         <td>{{profile.universidad}}</td>
                         <td>{{profile.date_creation}}</td>
-                        <td class="text-center"><a class="btn btn-sm btn-info"
-                                href="{% url 'profile_detail' profile.slug %}">Ver</a></td>
+                        <td class="text-center"><a class="btn btn-sm btn-info" href="{% url 'profile_detail' profile.slug %}">Ver</a></td>
                     </tr>
-                    {% endfor %}
-
-
-
+                    {% endif %} {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-
 </div>
 
 
-{%endblock content%}
-{% block flecha %}
-<!-- Pager -->
-<!--
-    <br>
-<div class="clearfix">
-    <a class="btn btn-primary float-right" href="{% url 'home' %}">Principal&rarr;</a>
-</div>
--->
-{% endblock flecha %}
+{%endblock content%} {% block flecha %} {% endblock flecha %}
