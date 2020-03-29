@@ -1,10 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load crispy_forms_tags %}
-{%block title%}Article edit{%endblock title%}
-
-
-{%block header%}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {%block title%}Article edit{%endblock title%} {%block header%}
 <!-- Page Header -->
 <style>
     header.masthead .site-heading {
@@ -13,16 +7,13 @@
     }
 </style>
 
-<header class="masthead"
-    style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
+<header class="masthead" style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
     <div class="overlay"></div>
     <div class="site-heading">
 
     </div>
 </header>
-{% endblock header%}
-
-{%block content%}
+{% endblock header%} {%block content%}
 
 <div class="container-fluid">
     <div class="row mt-4">
@@ -35,25 +26,20 @@
                         {% csrf_token %}
                         <div id="div_id_title" class="form-group"> <label for="id_title" class=" requiredField">
                                 Título:<span class="asteriskField">*</span> </label>
-                            <div class=""> <input type="text" name="title" value="{{form.title.value}}"
-                                    maxlength="255" class="textinput textInput form-control" required id="id_title">
+                            <div class=""> <input type="text" name="title" value="{{form.title.value}}" maxlength="255" class="textinput textInput form-control" required id="id_title">
                             </div>
                         </div>
                         <div id="div_id_image" class="form-group"> <label for="id_image" class="">
                                 Imagen de portada (URL)
                             </label>
-                            <div class=""> <input type="url" name="image"
-                                    value="{{form.image.value}}"
-                                    maxlength="200" class="urlinput form-control" id="id_image"> <small
-                                    id="hint_id_image" class="form-text text-muted">Buscar imagen relacionado al
+                            <div class=""> <input type="url" name="image" value="{{form.image.value}}" maxlength="200" class="urlinput form-control" id="id_image"> <small id="hint_id_image" class="form-text text-muted">Buscar imagen relacionado al
                                     artículo y pegar aquí la dirección URL de la imagen.</small> </div>
                         </div>
                         <div id="div_id_description" class="form-group"> <label for="id_description" class="">
                                 Descripción (255 caracteres):
                             </label>
                             <div class="form-group">
-                                <textarea class="form-control" type="text" name="description" maxlength="255"
-                                    rows="3">{{form.description.value}}</textarea>
+                                <textarea class="form-control" type="text" name="description" maxlength="255" rows="3">{{form.description.value}}</textarea>
                                 <small id="hint_id_description" class="form-text text-muted">Descripción corto del artículo
                                     o frases relevantes del mismo.</small>
                             </div>
@@ -62,7 +48,8 @@
                                 Categoría
                             </label>
                             <div class=""> <select name="category" class="select form-control" id="id_category">
-                                    <option value="general" selected>General</option>
+                                    <option value={{form.category.value}}>{{form.category.value}}</option>
+                                    <option value="general">General</option>
                                     <option value="datascience">Ciencia de datos</option>
                                     <option value="neurociencia">Neurociencia</option>
                                     <option value="projects">Proyectos</option>
@@ -76,9 +63,7 @@
                                 <small id="hint_id_body" class="form-text text-muted">Comparte tu conocimiento, experiencia a todo el MUNDO!.</small> </div>
                         </div>
                         <div class="form-group">
-                            <div id="div_id_status" class="form-check"> <input type="checkbox" name="status"
-                                    class="checkboxinput form-check-input" id="id_status" checked> <label
-                                    for="id_status" class="form-check-label">
+                            <div id="div_id_status" class="form-check"> <input type="checkbox" name="status" class="checkboxinput form-check-input" id="id_status" checked> <label for="id_status" class="form-check-label">
                                     Publicar/No publicar
                                 </label> </div>
                         </div>
