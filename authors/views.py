@@ -11,15 +11,11 @@ from users.models import CustomUser
 # Create your views here.
 
 
-class ProfileListView(ListView):
-    model = get_user_model()
-
-    template_name = 'authors/profile_list.html' 
-    login_url = 'login' #new
 
 def profiles_list_view(request):
     queryset = request.GET.get("buscar")
-    custumusers = get_list_or_404(CustomUser, estado = True) 
+    custumusers = get_list_or_404(CustomUser, estado = True)
+    
     if custumusers == None:
         return redirect('home')
         

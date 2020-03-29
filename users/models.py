@@ -27,6 +27,9 @@ class CustomUser(AbstractUser):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.username)
         super(CustomUser, self).save(*args, **kwargs)
+    
+    class Meta:
+        ordering = ['date_creation']
 
     def __str__(self):
         return self.first_name +' '+self.last_name
