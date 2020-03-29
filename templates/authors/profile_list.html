@@ -68,16 +68,16 @@
                     </tr>
                     {% endif %} {% endfor %}
                 </tbody>
-                {% if user.is_authenticated%}
+                {% if user.get_full_name or user.universidad or user.date_creation == None %} {% if user.is_authenticated%}
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
 
-                    <strong>Hola {{user.first_name}}!</strong> <br> Si aún no apareces en esta sección es debido a que aún no completas tu perfil con los campos universidad, nombres y apellidos. La universidad será referencial, puedes poner tu empresa,
-                    organización, etc.
+                    <strong>Hola {{user.first_name}}!</strong> <br> Si aún no apareces en esta sección es debido a que aún no completas tu perfil con los campos universidad u organización, nombres, apellidos, una pequeña descripción de tu perfil. <a class="btn btn-sm btn-warning"
+                        href="{% url  'profile_edit' user.slug %}">Editar perfil</a>
                 </div>
-                {% endif %}
+                {% endif %} {% endif%}
             </table>
         </div>
     </div>
