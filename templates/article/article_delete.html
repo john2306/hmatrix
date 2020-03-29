@@ -1,27 +1,19 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load crispy_forms_tags %}
-{%block title%}Article delete{%endblock title%}
-
-{%block header%}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {%block title%}Article delete{%endblock title%} {%block header%}
 <!-- Page Header -->
 <style>
     header.masthead .site-heading {
-    padding: 5px 0 52px;
-    color: #fff
-}
+        padding: 5px 0 52px;
+        color: #fff
+    }
 </style>
 
-<header class="masthead"
-    style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
+<header class="masthead" style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
     <div class="overlay"></div>
     <div class="site-heading">
 
     </div>
 </header>
-{% endblock header%}
-
-{%block content%}
+{% endblock header%} {%block content%}
 <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-md-12">
@@ -37,11 +29,11 @@
                         {% csrf_token %}
                         <p>¿Realmente quieres eliminar y dejar de compartir tu artículo con el resto del MUNDO!?
                         </p>
-                        <button class="btn btn-sm btn-danger ml-2" type="submit">Eliminar</button>
+                        <button class="btn btn-sm btn-danger ml-2" type="submit">Sí, eliminar</button>
                     </form>
                 </div>
                 <div class="card-footer text-center text-muted">
-                    <a class="btn btn-info" href="{% url 'home' %}">Cancelar</a>
+                    <a class="btn btn-info" href="{% url 'profile_detail' user.slug %}">Cancelar</a>
                 </div>
             </div>
             <br>
