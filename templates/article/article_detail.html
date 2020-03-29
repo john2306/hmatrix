@@ -1,31 +1,7 @@
-{% extends 'home.html' %}
-{% load crispy_forms_tags %}
-{%block title%}{{article.title}}{%endblock title%}
-
-{% block titulo_principal%}
-{{article.title}}
-{% endblock titulo_principal%}
-
-{% block titulo_parrafo%}
-{{article.description}}
-{% endblock titulo_parrafo%}
-{% block status %}
-{% if article.status == False %}
+{% extends 'home.html' %} {% load crispy_forms_tags %} {%block title%}{{article.title}}{%endblock title%} {% block titulo_principal%} {{article.title}} {% endblock titulo_principal%} {% block titulo_parrafo%} {{article.description}} {% endblock titulo_parrafo%}
+{% block status %} {% if article.status == False %}
 <a class="btn btn-sm btn-danger" href="{% url 'article_edit' article.slug %}">No Publicado <span><i
-    class="far fa-edit"></i></span></a>
-{% endif %}
-{%endblock status %}
-
-{% block barra_busqueda%}
-
-{% endblock barra_busqueda%}
-
-
-{% block imagen%}
-{{article.image}}
-{% endblock imagen%}
-
-{% block content%}
+            class="far fa-edit"></i></span></a> {% endif %} {%endblock status %} {% block barra_busqueda%} {% endblock barra_busqueda%} {% block imagen%} {{article.image}} {% endblock imagen%} {% block content%}
 <div class="container">
 
     {{article.body | safe}}
@@ -33,13 +9,12 @@
 </div>
 <div class="container">
     <p class="post-meta">Autor:
-        <a href="{% url 'profile_detail' article.author.slug %}"><strong>{{article.author}}</strong></a> , publicado el
-        {{article.date}}</p>
+        <a href="{% url 'profile_detail' article.author.slug %}"><strong>{{article.author}}</strong></a> , publicado el {{article.date}}
+    </p>
     <p>
         {% if article.author.username == user.username %}
         <div class="card-footer text-center bg-info text-white">
-            <a href="{% url 'article_edit' article.slug %}">Edit</a> | <a
-                href="{% url 'article_delete' article.slug %}">Delete</a>
+            <a href="{% url 'article_edit' article.slug %}">Editar</a> | <a href="{% url 'article_delete' article.slug %}">Eliminar</a>
         </div>
         {% endif %}
     </p>
@@ -74,8 +49,7 @@
 
 
 <!--MODAL COMMENTS-->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,8 +61,7 @@
             </div>
             <div class="modal-body">
                 <form action="" method="POST">
-                    {% csrf_token %}
-                    {{form}}
+                    {% csrf_token %} {{form}}
                 </form>
             </div>
             <div class="modal-footer">
