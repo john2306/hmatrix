@@ -1,9 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load crispy_forms_tags %}
-{%block title%}Profile Edit{%endblock title%}
-
-{%block header%}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {%block title%}Profile Edit{%endblock title%} {%block header%}
 <!-- Page Header -->
 <style>
     header.masthead .site-heading {
@@ -12,16 +7,13 @@
     }
 </style>
 
-<header class="masthead"
-    style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
+<header class="masthead" style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
     <div class="overlay"></div>
     <div class="site-heading">
 
     </div>
 </header>
-{% endblock header%}
-
-{%block content%}
+{% endblock header%} {%block content%}
 <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-md-12">
@@ -33,102 +25,103 @@
                     <form action="" method="POST">
                         {% csrf_token %}
                         <div id="div_id_first_name" class="form-group">
-                            <label for="id_first_name" class="">Nombre</label>
+                            <label for="id_first_name" class=""><strong>Nombre</strong></label>
                             <div class="">
-                                <input type="text" name="first_name" value="{{form.first_name.value}}" maxlength="30"
-                                    class="textinput textInput form-control" id="id_first_name"> </div>
+                                <input type="text" name="first_name" value="{{form.first_name.value}}" maxlength="30" class="textinput textInput form-control" id="id_first_name"> </div>
                         </div>
 
                         <div id="div_id_last_name" class="form-group">
-                            <label for="id_last_name" class="">Apellidos</label>
-                            <div class=""> <input type="text" name="last_name" value="{{form.last_name.value}}"
-                                    maxlength="150" class="textinput textInput form-control" id="id_last_name"> </div>
+                            <label for="id_last_name" class=""><strong>Apellidos</strong></label>
+                            <div class=""> <input type="text" name="last_name" value="{{form.last_name.value}}" maxlength="150" class="textinput textInput form-control" id="id_last_name"> </div>
                         </div>
                         <div id="div_id_email" class="form-group"> <label for="id_email" class="">
-                                Dirección de correo electrónico
+                                <strong>Dirección de correo electrónico</strong>
                             </label>
-                            <div class=""> <input type="email" name="email" value="{{form.email.value}}" maxlength="254"
-                                    class="emailinput form-control" id="id_email"> </div>
+                            <div class=""> <input type="email" name="email" value="{{form.email.value}}" maxlength="254" class="emailinput form-control" id="id_email"> </div>
                         </div>
                         <div id="div_id_universidad" class="form-group"> <label for="id_universidad" class="">
-                                Universidad:
+                                <strong>Universidad:</strong>
                             </label>
-                            <div class=""> <input type="text" name="universidad" value="{{form.universidad.value}}"
-                                    maxlength="50" class="textinput textInput form-control" id="id_universidad"> </div>
+                            <div class=""> <input type="text" name="universidad" value="{{form.universidad.value}}" maxlength="50" class="textinput textInput form-control" id="id_universidad"> </div>
                         </div>
                         <div id="div_id_phone" class="form-group"> <label for="id_phone" class="">
-                                Teléfono:
+                                <strong>Teléfono:</strong>
                             </label>
-                            <div class=""> <input type="text" name="phone" value="{{form.phone.value}}" maxlength="50"
-                                    class="textinput textInput form-control" id="id_phone"> </div>
+                            <div class=""> <input type="text" name="phone" value="{{form.phone.value}}" maxlength="50" class="textinput textInput form-control" id="id_phone"> </div>
                         </div>
                         <div id="div_id_photo" class="form-group"> <label for="id_photo" class="">
-                                Foto de perfil (URL):
+                                <strong>Foto de perfil (URL):</strong>
                             </label>
-                            <div class=""> <input type="url" name="photo" value="{{form.photo.value}}" maxlength="1000"
-                                    class="urlinput form-control" id="id_photo"> <small id="hint_id_photo"
-                                    class="form-text text-muted">Pega el link de tu foto de:
+                            <div class=""> <input type="url" name="photo" value="{{form.photo.value}}" maxlength="1000" class="urlinput form-control" id="id_photo"> <small id="hint_id_photo" class="form-text text-muted">Pega el link de tu foto de:
                                     linkedin, facebook u otro. Le das click derecho a la imagen y seleccionas COPIAR
                                     DIRECCIÓN de la IMAGEN</small> </div>
                         </div>
                         <div id="div_id_description" class="form-group"> <label for="id_description" class="">
-                                Descripción (255 caracteres):
+                                <strong>Descripción (255 caracteres):</strong>
                             </label>
                             <div class="form-group">
-                                <textarea class="form-control" type="text" name="description" maxlength="255"
-                                    rows="3">{{form.description.value}}</textarea>
+                                <textarea class="form-control" type="text" name="description" maxlength="255" rows="3">{{form.description.value}}</textarea>
                                 <small id="hint_id_description" class="form-text text-muted">Una frase favorita o como
                                     se describe en pocas palabras.</small>
                             </div>
                         </div>
                         <div id="div_id_bio" class="form-group"> <label for="id_bio" class="">
-                                Biografía o Experiencia
+                                <strong>Biografía o Experiencia</strong>
                             </label>
                             <div class=""> <textarea id="basic-example" name="bio">{{form.bio.value}}</textarea> </div>
                         </div>
                         <div id="div_id_age" class="form-group"> <label for="id_age" class="">
-                                Edad:
+                                <strong>Edad:</strong>
                             </label>
-                            <div class=""> <input type="number" name="age" value="{{form.age.value}}" min="0"
-                                    class="numberinput form-control" id="id_age"> </div>
+                            <div class=""> <input type="number" name="age" value="{{form.age.value}}" min="0" class="numberinput form-control" id="id_age"> </div>
                         </div>
                         <div id="div_id_facebook" class="form-group"> <label for="id_facebook" class="">
-                                Facebook (url):
+                                <strong>Facebook (pegar el enlace -URL-):</strong>
                             </label>
-                            <div class=""> <input type="url" name="facebook" value="{{form.facebook.value}}"
-                                    maxlength="200" class="urlinput form-control" id="id_facebook"> </div>
+                            <div class=""> <input type="url" name="facebook" value=" {% if form.facebook.value %} 
+                                {{form.facebook.value}} 
+                                {% else %}Pegar aquí la enlace a tu perfil de Facebook o borrarlo (dejarlo vacío).
+                                {% endif %}" maxlength="200" class="urlinput form-control" id="id_facebook"> </div>
                         </div>
                         <div id="div_id_linkedin" class="form-group"> <label for="id_linkedin" class="">
-                                Linkedin (url):
+                                <strong>Linkedin (pegar el enlace -URL-):</strong>
                             </label>
-                            <div class=""> <input type="url" name="linkedin"
-                                    value="{{form.linkedin.value}}" maxlength="200"
-                                    class="urlinput form-control" id="id_linkedin"> </div>
+                            <div class="">
+                                <input type="url" name="linkedin" value=" {% if form.linkedin.value %} 
+                                {{form.linkedin.value}} 
+                                {% else %}Pegar aquí la enlace a tu perfil de Linkedin o borrarlo (dejarlo vacío).
+                                {% endif %} " maxlength=" 200 " class="urlinput form-control " id="id_linkedin ">
+                            </div>
                         </div>
-                        <div id="div_id_twitter" class="form-group"> <label for="id_twitter" class="">
-                                Twitter (url):
+                        <div id="div_id_twitter " class="form-group "> <label for="id_twitter " class=" ">
+                                <strong>Twitter (pegar el enlace -URL-):</strong>
                             </label>
-                            <div class=""> <input type="url" name="twitter" value="{{form.twitter.value}}"
-                                    maxlength="200" class="urlinput form-control" id="id_twitter"> </div>
+                            <div class=" "> <input type="url " name="twitter " value="{% if form.twitter.value %} 
+                                {{form.twitter.value}} 
+                                {% else %}Pegar aquí la enlace a tu perfil de Twitter o borrarlo (dejarlo vacío).
+                                {% endif %}" maxlength="200 " class="urlinput form-control " id="id_twitter "> </div>
                         </div>
-                        <div id="div_id_instagram" class="form-group"> <label for="id_instagram" class="">
-                                Instagram (url):
+                        <div id="div_id_instagram " class="form-group "> <label for="id_instagram " class=" ">
+                                <strong>Instagram (pegar el enlace -URL-):</strong>
                             </label>
-                            <div class=""> <input type="url" name="instagram"
-                                    value="{{form.instagram.value}}" maxlength="200"
-                                    class="urlinput form-control" id="id_instagram"> </div>
+                            <div class=" "> <input type="url " name="instagram " value=" {% if form.instagram.value %} 
+                                {{form.instagram.value}} 
+                                {% else %}Pegar aquí la enlace a tu perfil de Instagram o borrarlo (dejarlo vacío).
+                                {% endif %}" maxlength="200 " class="urlinput form-control " id="id_instagram "> </div>
                         </div>
-                        <div id="div_id_web" class="form-group"> <label for="id_web" class="">
-                                Web (url):
+                        <div id="div_id_web " class="form-group "> <label for="id_web " class=" ">
+                                <strong>Web (pegar el enlace -URL-):</strong>
                             </label>
-                            <div class=""> <input type="url" name="web" value="{{form.web.value}}"
-                                    maxlength="200" class="urlinput form-control" id="id_web"> </div>
+                            <div class=" "> <input type="url " name="web " value=" {% if form.web.value %} 
+                                {{form.web.value}} 
+                                {% else %}Pegar aquí la enlace a tu perfil de Web personal o borrarlo (dejarlo vacío).
+                                {% endif %}" maxlength="200 " class="urlinput form-control " id="id_web "> </div>
                         </div>
-                        <button class="btn btn-warning ml-2" type="submit">Actualizar</button>
+                        <button class="btn btn-warning ml-2 " type="submit ">Actualizar</button>
                     </form>
                 </div>
-                <div class="card-footer text-center text-muted">
-                    <a class="btn btn-info" href="{% url 'profile_detail' user.slug %}">Cancelar</a>
+                <div class="card-footer text-center text-muted ">
+                    <a class="btn btn-info " href="{% url 'profile_detail' user.slug %} ">Cancelar</a>
                 </div>
             </div>
             <br>
@@ -138,14 +131,12 @@
 </div>
 
 
-{%endblock content%}
-
-{% block flecha %}
+{%endblock content%} {% block flecha %}
 <!-- Pager -->
 <!--
     <br>
-<div class="clearfix">
-    <a class="btn btn-primary float-right" href="{% url 'home' %}">Principal&rarr;</a>
+<div class="clearfix ">
+    <a class="btn btn-primary float-right " href="{% url 'home' %} ">Principal&rarr;</a>
 </div>
 -->
 {% endblock flecha %}
