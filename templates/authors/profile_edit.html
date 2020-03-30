@@ -88,10 +88,10 @@
                             </div>
                         </div>
                         <!--
-                            <div id="div_id_twitter " class="form-group "> <label for="id_twitter " class=" ">
+                            <div id="div_id_twitter" class="form-group "> <label for="id_twitter " class=" ">
                                 <strong>Twitter (pegar el enlace -URL-):</strong>
                             </label>
-                            <div class=" "> <input type="url " name="twitter " value="{% if form.twitter.value %} 
+                            <div class=" "> <input type="url" name="twitter" value="{% if form.twitter.value %} 
                                 {{form.twitter.value}} 
                                 {% else %}Pegar aquí la enlace a tu perfil de Twitter o borrarlo (dejarlo vacío).
                                 {% endif %}" maxlength="200 " class="urlinput form-control " id="id_twitter "> </div>
@@ -99,16 +99,15 @@
                         <div id="div_id_instagram " class="form-group "> <label for="id_instagram " class=" ">
                                 <strong>Instagram (pegar el enlace -URL-):</strong>
                             </label>
-                            <div class=" "> <input type="url " name="instagram " value=" {% if form.instagram.value %} 
+                            <div class=" "> <input type="url" name="instagram" value=" {% if form.instagram.value %} 
                                 {{form.instagram.value}} 
                                 {% else %}Pegar aquí la enlace a tu perfil de Instagram o borrarlo (dejarlo vacío).
                                 {% endif %}" maxlength="200 " class="urlinput form-control " id="id_instagram "> </div>
                         </div>
                         -->
-                        <div id="div_id_web " class="form-group "> <label for="id_web " class="">
+                        <div id="div_id_web" class="form-group "> <label for="id_web " class="">
                                 <strong>Web (pegar el enlace -URL-):</strong>
-                            </label>
-                            <div class=" "> <input type="url " name="web " value="{{form.web.value}}" maxlength="200 " class="urlinput form-control " id="id_web "> </div>
+                            </label> <input type="url" name="web" value="{{form.web.value}}" maxlength="200 ">
                         </div>
 
                         <button class="btn btn-warning ml-2 " type="submit ">Actualizar</button>
