@@ -105,16 +105,16 @@
                                 {% endif %}" maxlength="200 " class="urlinput form-control " id="id_instagram "> </div>
                         </div>
                         -->
-                        <div id="div_id_web" class="form-group "> <label for="id_web " class="">
+                        <div id="div_id_web" class="form-group"> <label for="id_web" class="">
                                 <strong>Web (pegar el enlace -URL-):</strong>
                             </label> <input type="url" name="web" value="{{form.web.value}}" maxlength="200 ">
                         </div>
 
-                        <button class="btn btn-warning ml-2 " type="submit ">Actualizar</button>
+                        <button class="btn btn-warning ml-2" type="submit">Actualizar</button>
                     </form>
                 </div>
                 <div class="card-footer text-center text-muted ">
-                    <a class="btn btn-info " href="{% url 'profile_detail' user.slug %} ">Cancelar</a>
+                    <a class="btn btn-info " href="{% url 'profile_detail' user.slug %}">Cancelar</a>
                 </div>
             </div>
             <br>
