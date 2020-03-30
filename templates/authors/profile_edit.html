@@ -89,7 +89,7 @@
                             <div class="">
                                 <input type="url" name="linkedin" value=" {% if form.linkedin.value %} 
                                 {{form.linkedin.value}} 
-                                {% else %}Pegar aquí la enlace a tu perfil de Linkedin o borrarlo (dejarlo vacío).
+                                {% else %}www.ianalytics.com
                                 {% endif %} " maxlength=" 200 " class="urlinput form-control " id="id_linkedin ">
                             </div>
                         </div>
@@ -110,15 +110,16 @@
                                 {% else %}Pegar aquí la enlace a tu perfil de Instagram o borrarlo (dejarlo vacío).
                                 {% endif %}" maxlength="200 " class="urlinput form-control " id="id_instagram "> </div>
                         </div>
+                        -->
                         <div id="div_id_web " class="form-group "> <label for="id_web " class=" ">
                                 <strong>Web (pegar el enlace -URL-):</strong>
                             </label>
                             <div class=" "> <input type="url " name="web " value=" {% if form.web.value %} 
                                 {{form.web.value}} 
-                                {% else %}Pegar aquí la enlace a tu perfil de Web personal o borrarlo (dejarlo vacío).
+                                {% else %} www.ianalytics.com
                                 {% endif %}" maxlength="200 " class="urlinput form-control " id="id_web "> </div>
                         </div>
-                        -->
+
                         <button class="btn btn-warning ml-2 " type="submit ">Actualizar</button>
                     </form>
                 </div>
