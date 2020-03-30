@@ -78,19 +78,13 @@
                         <div id="div_id_facebook" class="form-group"> <label for="id_facebook" class="">
                                 <strong>Facebook (pegar el enlace -URL-):</strong>
                             </label>
-                            <div class=""> <input type="url" name="facebook" value=" {% if form.facebook.value %} 
-                                {{form.facebook.value}} 
-                                {% else %}Pegar aquí la enlace a tu perfil de Facebook o borrarlo (dejarlo vacío).
-                                {% endif %}" maxlength="200" class="urlinput form-control" id="id_facebook"> </div>
+                            <div class=""> <input type="url" name="facebook" value="{{form.facebook.value}}" maxlength="200" class="urlinput form-control" id="id_facebook"> </div>
                         </div>
                         <div id="div_id_linkedin" class="form-group"> <label for="id_linkedin" class="">
                                 <strong>Linkedin (pegar el enlace -URL-):</strong>
                             </label>
                             <div class="">
-                                <input type="url" name="linkedin" value=" {% if form.linkedin.value %} 
-                                {{form.linkedin.value}} 
-                                {% else %}www.ianalytics.com
-                                {% endif %} " maxlength=" 200 " class="urlinput form-control " id="id_linkedin ">
+                                <input type="url" name="linkedin" value="{{form.linkedin.value}}" maxlength=" 200 " class="urlinput form-control " id="id_linkedin ">
                             </div>
                         </div>
                         <!--
@@ -111,13 +105,10 @@
                                 {% endif %}" maxlength="200 " class="urlinput form-control " id="id_instagram "> </div>
                         </div>
                         -->
-                        <div id="div_id_web " class="form-group "> <label for="id_web " class=" ">
+                        <div id="div_id_web " class="form-group "> <label for="id_web " class="">
                                 <strong>Web (pegar el enlace -URL-):</strong>
                             </label>
-                            <div class=" "> <input type="url " name="web " value=" {% if form.web.value %} 
-                                {{form.web.value}} 
-                                {% else %} www.ianalytics.com
-                                {% endif %}" maxlength="200 " class="urlinput form-control " id="id_web "> </div>
+                            <div class=" "> <input type="url " name="web " value="{{form.web.value}}" maxlength="200 " class="urlinput form-control " id="id_web "> </div>
                         </div>
 
                         <button class="btn btn-warning ml-2 " type="submit ">Actualizar</button>
