@@ -1,9 +1,19 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
-{%block title%}Articles{%endblock title%}
+{% extends 'base.html' %}{% load static %} {% load crispy_forms_tags %} {%block title%}404{%endblock title%} {%block header%}
+<!-- Page Header -->
+<style>
+    header.masthead .site-heading {
+        padding: 5px 0 52px;
+        color: #fff
+    }
+</style>
 
+<header class="masthead" style="background-image: url({% block imagen%}{% static 'img/navbar.png' %}{% endblock imagen%})">
+    <div class="overlay"></div>
+    <div class="site-heading">
 
-{%block content%}
+    </div>
+</header>
+{% endblock header%} {%block content%}
 
 <div class="container-fluid" style="margin-top: 100px;">
     <div class="row">
@@ -11,9 +21,8 @@
 
         </div>
         <div class="col-md-10">
-            <h5>PAGE NOT FOUND 404 </h5>
-            <h6>No existe esta página, lo sentimos :(</h6>
-            <span>Te invitamos ir al inicio, <a class="btn btn-sm btn-info" href="{% url 'home' %}">Home</a></span>
+            <h1 class="display-1">PAGE NOT FOUND 404 </h1>
+            <p>No existe esta página, lo sentimos :(</p>
         </div>
         <div class="col-md-1">
 
@@ -22,4 +31,3 @@
 </div>
 
 {%endblock content%}
-
