@@ -107,7 +107,7 @@
                         -->
                         <div id="div_id_web" class="form-group"> <label for="id_web" class="">
                                 <strong>Web (pegar el enlace -URL-):</strong>
-                            </label> <input type="url" name="web" value="{{form.web.value}}" maxlength="200" class="urlinput form-control" id="id_web">
+                            </label> <input type="url" name="web" value="{%if form.web.value != None %}{{form.web.value}}{%else%}www.ianalytics.com{%endif%}" maxlength="200" class="urlinput form-control" id="id_web">
                         </div>
 
                         <button class="btn btn-warning ml-2" type="submit">Actualizar</button>
