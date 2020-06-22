@@ -3,10 +3,9 @@
 <html lang="es">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Proyectos, Neurociencia, Economía, Política y Ciencia de Datos">
+    <meta name="description" content="Educación, Neurociencia, Economía y Ciencia de Datos">
     <meta name="company" content="IAnalytics (open source)">
 
     <title>{%block title%}{%endblock title%}</title>
@@ -16,7 +15,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png'%}">
 
     <!-- Bootstrap core CSS -->
-
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
@@ -138,8 +136,10 @@
                 <form class="form-inline ml-auto">
                     <a href="{% url 'login' %}" class="btn btn-outline-info ml-2">
                         Log In</a>
-                    <a href="{% url 'signup' %}" class="btn btn-outline-secondary ml-2">
+                    <!--
+                        <a href="{% url 'signup' %}" class="btn btn-outline-secondary ml-2">
                         Sign up</a>
+                    -->
                 </form>
                 {% endif %}
             </div>
