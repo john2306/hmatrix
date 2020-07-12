@@ -74,7 +74,7 @@
                 <tbody>
                     {% for article in articles%}
                     <tr>
-                        {% if article.status == True%}
+                        {% if article.status == True %}
                         <td><b>{{article.title}}</b> {% if user.is_authenticated%}
                             <span class="badge badge-success">Publicado</span> {% endif %}
                         </td>

@@ -39,7 +39,7 @@ class ProfileDetailView(DetailView): # new
 
 def profileDetail(request, slug):
     customuser = get_object_or_404(CustomUser, slug = slug) 
-    articles = Article.objects.filter(author = customuser, delete =False)
+    articles = Article.objects.filter(author = customuser)
     
     context = {
         'customuser' : customuser,
